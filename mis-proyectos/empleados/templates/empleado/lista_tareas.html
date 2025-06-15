@@ -1,0 +1,20 @@
+
+{% block title %}Lista de Tareas{% endblock %}
+
+{% block header %}Tareas Registradas{% endblock %}
+
+{% block content %}
+  <h2>Listado de Tareas</h2>
+  <ul>
+    {% for tarea in tareas %}
+      <li>
+        <strong>{{ tarea.nombre }}</strong> - {{ tarea.descripcion }}
+        | <a href="{% url 'eliminar-tarea' tarea.pk %}">Eliminar</a>
+      </li>
+    {% empty %}
+      <li>No hay tareas registradas.</li>
+    {% endfor %}
+  </ul>
+
+  <a href="/crear-tarea/">Crear nueva tarea</a>
+{% endblock %}

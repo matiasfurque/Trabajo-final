@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, DetailView, DeleteView
 from django.views.generic.edit import CreateView
 from .models import Empleado, Tarea
 class IndexView (TemplateView):
@@ -44,3 +45,12 @@ class TareaCreateView(CreateView):
     def get_success_url(self):
         return '/tareas/'  
     
+class EliminarTareaView(DeleteView):
+    model = Tarea
+    template_name = 'empleado/eliminar_tarea.html' 
+    success_url = reverse_lazy('lista-de-tareas') 
+
+class ListaTareasView(ListView):
+    model = Tarea
+    template_name = 'empleado/lista_tareas.html'
+    context_object_name = 'tareas'
