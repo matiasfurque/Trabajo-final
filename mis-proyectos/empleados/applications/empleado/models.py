@@ -16,10 +16,8 @@ class Habilidades (models.Model):
         return self.habilidad 
 
 
-
 class Empleado (models.Model) :
     # Modelo de Empleado
-
     # Contador
     # Administrativo
     # Desarrollador
@@ -63,4 +61,3 @@ class Tarea(models.Model):
 
     def __str__(self):
         return self.nombre
-
